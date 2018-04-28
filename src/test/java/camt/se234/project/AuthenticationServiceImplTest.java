@@ -1,13 +1,15 @@
 package camt.se234.project;
 
 import camt.se234.project.dao.UserDao;
+import camt.se234.project.entity.User;
 import camt.se234.project.service.AuthenticationServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.when;
 
 public class AuthenticationServiceImplTest {
     UserDao userDao;
@@ -22,7 +24,10 @@ public class AuthenticationServiceImplTest {
 
     @Test
     public void authenticateTest(){
-        assertThat(authenticationService.authenticate("sun","1234"),is(userDao.getUser("sun", "1234")));
-        assertThat(authenticationService.authenticate("dan","1234"),is(userDao.getUser("dan", "1234")));
+        when(userDao.getUser("sun" ,"1234")).thenReturn(new User("sun","1234","student"));
+        assertThat(userDao.getUser("sun" ,"1234") , is(new User("sun","1234","student")));
+        assertThat(userDao.getUser("sun" ,"1234"),is(nullValue()));
     }
+
+
 }

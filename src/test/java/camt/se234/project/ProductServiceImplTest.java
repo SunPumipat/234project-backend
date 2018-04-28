@@ -1,7 +1,6 @@
 package camt.se234.project;
 
 import camt.se234.project.dao.ProductDao;
-import camt.se234.project.entity.Product;
 import camt.se234.project.service.ProductServiceImpl;
 import org.junit.Before;
 
@@ -18,5 +17,4 @@ public class ProductServiceImplTest {
         productService.setProductDao(productDao);
     }
 
-    
 }
