@@ -26,7 +26,7 @@ public class AuthenticationServiceImplTest {
     public void authenticateTest(){
         when(userDao.getUser("sun" ,"1234")).thenReturn(new User("sun","1234","student"));
         assertThat(userDao.getUser("sun" ,"1234") , is(new User("sun","1234","student")));
-        assertThat(userDao.getUser("sun" ,"1234"),is(nullValue()));
+        assertThat(userDao.getUser("sun" ,"12346"),is(nullValue()));
     }
 
 
