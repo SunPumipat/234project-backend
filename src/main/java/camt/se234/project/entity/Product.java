@@ -22,9 +22,12 @@ public class Product {
     String productId;
     String name;
     String description;
-
     String imageLocation;
     double price;
+
+    public Product (String name){
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
