@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -40,6 +39,14 @@ public class ProductServiceImplTest {
 
     @Test
     public void getAvailableProductsTest(){
-
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product("milk" , 20));
+        mockProducts.add(new Product("coke" , 15));
+        mockProducts.add(new Product("water" , 7));
+        mockProducts.add(new Product("sperm" , -5));
+        when(productDao.getProducts()).thenReturn(mockProducts);
+        assertThat(productService.getAvailableProducts(),hasItem(new Product("milk" , 20)));
+        assertThat(productService.getAvailableProducts(), is(not(new Product("sperm" , -5))));
     }
+
 }
