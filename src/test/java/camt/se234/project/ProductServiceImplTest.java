@@ -49,4 +49,15 @@ public class ProductServiceImplTest {
         assertThat(productService.getAvailableProducts(), is(not(new Product("sperm" , -5))));
     }
 
+    @Test
+    public void getUnavailableProductSizeTest(){
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product("milk" , 20));
+        mockProducts.add(new Product("coke" , 15));
+        mockProducts.add(new Product("water" , 7));
+        mockProducts.add(new Product("fanta" , 18));
+        mockProducts.add(new Product("sperm" , -5));
+        when(productDao.getProducts()).thenReturn(mockProducts);
+        assertThat(productService.getUnavailableProductSize(),is(1));
+    }
 }
