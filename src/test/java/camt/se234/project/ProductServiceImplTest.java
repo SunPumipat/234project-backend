@@ -32,9 +32,14 @@ public class ProductServiceImplTest {
         mockProducts.add(new Product("coca-cola"));
         mockProducts.add(new Product("milk"));
         mockProducts.add(new Product("snack"));
-        when(productService.getAllProducts()).thenReturn(mockProducts);
+        when(productDao.getProducts()).thenReturn(mockProducts);
         assertThat(productService.getAllProducts(), hasItem(new Product("milk")));
         assertThat(productService.getAllProducts() ,hasItems(new Product("coca-cola"),
                 new Product("milk")));
+    }
+
+    @Test
+    public void getAvailableProductsTest(){
+
     }
 }
