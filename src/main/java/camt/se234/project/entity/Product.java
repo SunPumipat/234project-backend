@@ -22,7 +22,33 @@ public class Product {
     String productId;
     String name;
     String description;
+
     String imageLocation;
     double price;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
 
 }
