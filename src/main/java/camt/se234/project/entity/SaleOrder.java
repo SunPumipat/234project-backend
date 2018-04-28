@@ -32,4 +32,16 @@ public class SaleOrder {
         }
         return totalPrice;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getSaleOrderId() {
+        return saleOrderId;
+    }
+
+    public List<SaleTransaction> getTransactions() {
+        return transactions;
+    }
 }

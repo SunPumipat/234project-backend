@@ -46,4 +46,9 @@ public class SaleTransaction {
         return amount;
     }
 
+    public void setOrder(SaleOrder order) {
+        this.order = order;
+    }
+
+
 }
