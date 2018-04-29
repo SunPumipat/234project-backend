@@ -22,9 +22,15 @@ public class SaleTransaction {
     @ManyToOne
     @JoinColumn(name = "order_id")
     SaleOrder order;
-    @OneToOne (fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     Product product;
     int amount;
+
+    public SaleTransaction(SaleOrder order, Product product, int amount) {
+        this.product = product;
+        this.order = order;
+        this.amount = amount;
+    }
 
     public Long getId() {
         return id;
