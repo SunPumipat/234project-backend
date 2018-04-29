@@ -38,4 +38,15 @@ public class SaleOrderServiceImplTest {
       assertThat(saleOrderService.getSaleOrders() , hasItems(new SaleOrder("100"),
                 new SaleOrder("200")));
     }
+
+    @Test
+    public void getAverageSaleOrderPriceTest(){
+        List<SaleTransaction> transactions = new ArrayList<>();
+        List<SaleOrder> orders = new ArrayList<>();
+        transactions.add(new SaleTransaction(new Product("milk" , 20) , 10));
+        transactions.add(new SaleTransaction(new Product("coke" , 15) , 3));
+        when(orderDao.getOrders()).thenReturn(orders);
+        orders.add(new SaleOrder(transactions));
+        assertThat(saleOrderService.getAverageSaleOrderPrice(),is(245.0));
+    }
 }

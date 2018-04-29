@@ -26,9 +26,8 @@ public class SaleTransaction {
     Product product;
     int amount;
 
-    public SaleTransaction(SaleOrder order, Product product, int amount) {
+    public SaleTransaction( Product product, int amount) {
         this.product = product;
-        this.order = order;
         this.amount = amount;
     }
 

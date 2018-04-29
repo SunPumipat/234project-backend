@@ -30,8 +30,7 @@ public class SaleOrder {
         this.saleOrderId = saleOrderId;
     }
 
-    public SaleOrder(String saleOrderId , List<SaleTransaction> saleTransaction){
-        this.saleOrderId = saleOrderId;
+    public SaleOrder(List<SaleTransaction> saleTransaction){
         this.transactions = saleTransaction;
     }
 
