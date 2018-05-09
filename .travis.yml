@@ -11,7 +11,7 @@ before_install:
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
-- docker build --build-arg JAR_FILE=/target/backend.jar -t sunjido/234-project  .
+- docker build --build-arg JAR_FILE=/target/app.jar -t sunjido/234-project  .
 - docker push sunjido/234-project
 - docker pull dto80/project234-frontend
 cache:
