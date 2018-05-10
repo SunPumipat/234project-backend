@@ -5,21 +5,17 @@ import camt.se234.project.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-
-    UserDao userDao;
-
     @Autowired
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
 
+    UserDao userDao;
     @Override
-    public User authenticate(String username, String password) {
-        return userDao.getUser(username,password);
+    public User authenticate(String username, String pasword) {
+        return userDao.getUser(username,pasword);
     }
 }
