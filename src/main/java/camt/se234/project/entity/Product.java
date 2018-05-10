@@ -80,13 +80,4 @@ public class Product {
         this.imageLocation = imageLocation;
         this.price = price;
     }
-
-    public Product(String productId, double price) {
-        this.productId = productId;
-        this.price = price;
-    }
-
-    public Product(String name) {
-        this.name = name;
-    }
 }

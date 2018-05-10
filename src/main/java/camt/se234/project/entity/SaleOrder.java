@@ -61,12 +61,4 @@ public class SaleOrder {
         this.saleOrderId = saleOrderId;
         this.transactions = transactions;
     }
-
-    public SaleOrder(String saleOrderId) {
-        this.saleOrderId = saleOrderId;
-    }
-
-    public SaleOrder(List<SaleTransaction> transactions) {
-        this.transactions = transactions;
-    }
 }
