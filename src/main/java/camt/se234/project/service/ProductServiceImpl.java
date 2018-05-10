@@ -24,11 +24,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAvailableProducts() {
         List<Product> products = new ArrayList<>();
-        for (Product product : productDao.getProducts()) {
+        for (Product product :
+                productDao.getProducts()) {
             if (product.getPrice() > 0){
                 products.add(product);
             }
-
+            
         }
         return products;
     }
