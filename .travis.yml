@@ -1,19 +1,16 @@
 language: java
-sudo: required
 before_install:
-- sudo rm /usr/local/bin/docker-compose
-- curl -L http://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname
-  -s`-`uname -m` > docker-compose
-- chmod +x docker-compose
-- chmod +x mvnw
-- sudo mv docker-compose /usr/local/bin
-- docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - sudo curl -sL -o /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.21.0/docker-compose-"$(uname -s)"-"$(uname -m)"
+  - sudo chmod    +x /usr/local/bin/docker-compose
 install:
-- mvn install -Dmaven.javadoc.skip=true -B -V
-- docker build --build-arg JAR_FILE=/target/app.jar -t sunjido/234project-backend  .
-- docker push sunjido/234project-backend
+  - mvn install -Dmaven.javadoc.skip=true -B -V
+  - ls -l
+script:
+  - docker build --build-arg JAR_FILE=/target/backend.jar -t sunjido/234project-backend  .
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker push sunjido/234project-backend
 after_success:
-- docker-compose -H "$DOCKER_HOST" up -d
+  - docker-compose -H "$DOCKER_HOST" up -d
 env:
   global:
   - secure: MROzH5EmosxYecYUg3zH2XWm0l2koSYhVrL748YIvif1e1E/MouOHzrMss3BkaB1xjYD9045IdH/2HhrHbVoCKNotfrHb1kn1WM7Wkc8O9VXS+MiswnnXsVQpAzP+9XhzmMFWNhXzPgkEbW7XtqCFLhAklevGK1ovDySoqvNaGy70wlBZA7cRonR1xMssYyGX2StnAhIznxIxcPzLV42B2UR9iJ/PTG+8mZo9Rdo5ok8byEg5XE5e3MGfbKdeqbL0nuIsFLFOWKCJMl6KEIZRX6MXr2O14Z1rt113+/hix3S1d+eWTWHS++H4TgGgM8zZEAki/uLMKPWFcC4PyPq7UrjevKV1VN86bCCUGQYTzYhilmzba8u5pQJU3HU7P/ictcCDdLtJHvIN4dNIaYnf+yAqrp3qwP3seoBQAsQOs5RUAbbRk9TfhUQRnZS8Newfj+/+z55IZEAyBmkIgzjNC2RVKeo11SmXP3MSywyQCC39zxZVTco0BCvXyoX0CuAvNVXhmn8lt48G8AVjnTsVVStUHRxvIHpM4bD3AMQK2bB39wNtRD692HTwGLGFteSNXIixAEiN8j+3hkJ/ixNsz+vtt4BFXL4EyYaIi79pfs7nS1QtrDhJtN3eeRvP0xL30wKo2nmcxJMc3LJqS/aIejznyL85cGUif4MAeB1ShE=
