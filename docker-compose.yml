@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   backend:
-    image: sunjido/234-project:latest
+    image: sunjido/234project-backend:latest
     ports:
       - "8086:8080"
   frontend:
@@ -10,5 +10,5 @@ services:
       - "8085:80"
     volumes:
       - type: bind
-        source: ./Project234
+        source: /home/ubuntu/Project234
         target: /usr/share/nginx/html/assets
