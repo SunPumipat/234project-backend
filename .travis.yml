@@ -2,17 +2,18 @@ language: java
 sudo: required
 before_install:
 - sudo rm /usr/local/bin/docker-compose
-- curl -L http://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname
+- curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname
   -s`-`uname -m` > docker-compose
 - chmod +x docker-compose
-- chmod +x mvnw
 - sudo mv docker-compose /usr/local/bin
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+- chmod +x mvnw
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
-- docker build --build-arg JAR_FILE=/target/backend.jar -t sunjido/234-project  .
-- docker push sunjido/234-project
+- docker build --build-arg JAR_FILE=./target/app.jar -t sunjido/234project-backend
+  .
+- docker push sunjido/234project-backend
 - docker pull dto80/project234-frontend
 cache:
   directories:

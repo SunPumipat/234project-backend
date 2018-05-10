@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   backend:
-    image: sunjido/234-project:latest
+    image: sunjido/234project-backend:latest
     ports:
       - "8086:8080"
   frontend:
