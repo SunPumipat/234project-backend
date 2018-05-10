@@ -14,8 +14,7 @@ install:
 - docker build --build-arg JAR_FILE=/target/app.jar -t sunjido/234project-backend
   .
 - docker push sunjido/234project-backend
-- docker pull dto80/project234-frontend:latest
-- docker pull sunjido/234project-backend:latest
+- docker pull dto80/project234-frontend
 cache:
   directories:
   - "$HOME/.m2"
