@@ -6,7 +6,7 @@ install:
   - mvn install -Dmaven.javadoc.skip=true -B -V
   - ls -l
 script:
-  - docker build --build-arg JAR_FILE=/target/backend.jar -t sunjido/234project-backend  .
+  - docker build --build-arg JAR_FILE=/target/app.jar -t sunjido/234project-backend  .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push sunjido/234project-backend
 after_success:
