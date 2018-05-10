@@ -10,5 +10,5 @@ services:
       - "8085:80"
     volumes:
       - type: bind
-        source: /home/ubuntu/Project234
+        source: ./Project234
         target: /usr/share/nginx/html/assets
